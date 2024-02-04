@@ -1,0 +1,22 @@
+PG dump and tar backup command:
+===============================
+pg_dump -U postgres -d pubs -p 5432 > E:\PGSQL\Backup\pubs_db_pg_dump_bkup
+pg_dump -U postgres -Ft pubs > pubs_pg_tar_bkup.tar
+
+PG dump and tar backup restore command
+=======================================
+1. Connect PSQL
+================
+psql
+
+2. Create empty pubs database
+==============================
+create database pubs;
+
+3. Restore any one backup dump or tar 
+=====================================
+pg_restore -Ft -d pubs < pubs_pg_tar_bkup.tar
+
+or
+
+psql -d pubs < pubs_db_pg_dump_bkup
